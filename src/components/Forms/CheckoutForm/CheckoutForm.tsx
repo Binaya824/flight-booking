@@ -2,18 +2,14 @@
 
 import { useState } from 'react'
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardFooter } from "@/components/ui/card"
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import { Label } from "@/components/ui/label"
-import { Checkbox } from "@/components/ui/checkbox"
-import { ArrowLeft, ArrowRight, RefreshCw } from 'lucide-react'
+import { ArrowLeft, ArrowRight } from 'lucide-react'
 import Details from '@/components/Forms/CheckoutForm/Details'
 
-type TicketType = 'standard' | 'flexible'
+// type TicketType = 'standard' | 'flexible'
 
-type FormData = {
-  ticketType: TicketType
-}
+// type FormData = {
+//   ticketType: TicketType
+// }
 
 type Step = {
   id: number
@@ -28,9 +24,9 @@ const steps: Step[] = [
 
 export default function CheckoutForm() {
   const [currentStep, setCurrentStep] = useState(1)
-  const [formData, setFormData] = useState<FormData>({
-    ticketType: 'standard',
-  })
+  // const [formData, setFormData] = useState<FormData>({
+  //   ticketType: 'standard',
+  // })
 
   const handleNext = () => {
     if (currentStep < steps.length) {
@@ -44,9 +40,9 @@ export default function CheckoutForm() {
     }
   }
 
-  const handleTicketTypeChange = (value: TicketType) => {
-    setFormData({ ...formData, ticketType: value })
-  }
+  // const handleTicketTypeChange = (value: TicketType) => {
+  //   setFormData({ ...formData, ticketType: value })
+  // }
 
   return (
     <div className="w-full mx-auto p-6">
@@ -92,7 +88,7 @@ export default function CheckoutForm() {
         <Button variant="link" className="text-gray-600">
           Give feedback
         </Button>
-        <p className="text-xs text-gray-600">Tell us how we're doing and what could be better</p>
+        <p className="text-xs text-gray-600">Tell us how we&apos;re doing and what could be better</p>
       </div>
     </div>
   )

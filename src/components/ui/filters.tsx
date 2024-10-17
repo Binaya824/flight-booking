@@ -1,9 +1,8 @@
 'use client'
 import React from 'react'
 
-type Props = {}
 
-const Filters = (props: Props) => {
+const Filters = () => {
   return (
     <div className='w-full rounded-md'>
         <p className='text-lg font-semibold tracking-wider'>Filters</p>

@@ -1,19 +1,18 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import SearchForm from "../Forms/SearchForm";
 
 
-type Props = {};
 
-const Search = (props: Props) => {
+const Search = () => {
 
-  const [cabinClasses, setCabinClasses] = useState<string[]>([
+  
+  const cabinClasses: string[] = [
     "Economy",
     "Premium economy",
     "Business",
     "First class",
-  ]);
-
+  ]
   
 
   return (

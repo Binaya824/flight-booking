@@ -23,7 +23,7 @@ export default function Details() {
               {/* Traveler details */}
               <div className="mb-6">
                 <h3 className="text-lg font-semibold mb-2">Adult 1</h3>
-                <Button variant="outline" className="w-full">Add this traveller's details</Button>
+                <Button variant="outline" className="w-full">Add this traveller&apos;s details</Button>
               </div>
 
               {/* Baggage options */}
@@ -139,7 +139,7 @@ export default function Details() {
               <Card className="mt-4">
                 <CardContent className="p-6">
                   <h3 className="font-semibold mb-2">Give feedback</h3>
-                  <p className="text-sm text-gray-500">Tell us how we're doing and what could be better</p>
+                  <p className="text-sm text-gray-500">Tell us how we&apos;re doing and what could be better</p>
                 </CardContent>
               </Card>
             </div>

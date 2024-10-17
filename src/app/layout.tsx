@@ -3,7 +3,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import { NextUIProvider } from "@nextui-org/system";
-import { Triangle } from "react-loader-spinner";
+// import { Triangle } from "react-loader-spinner";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",

@@ -4,7 +4,6 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import {
@@ -147,13 +146,13 @@ export default function FlightBookingModal({
                 <div className="flex items-center space-x-2">
                   <RefreshCcw className="h-4 w-4" />
                   <span className="text-sm">
-                    You're allowed to change this flight, for a fee
+                    You&apos;re allowed to change this flight, for a fee
                   </span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <XCircle className="h-4 w-4" />
                   <span className="text-sm">
-                    You're allowed to cancel this flight, for a fee
+                    You&apos;re allowed to cancel this flight, for a fee
                   </span>
                 </div>
               </div>

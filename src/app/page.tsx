@@ -1,7 +1,7 @@
 import FlightCard from "@/components/FlightCard/FlightCard";
 import Search from "@/components/Search/Search";
 import Filters from "@/components/ui/filters";
-import Image from "next/image";
+// import Image from "next/image";
 
 export default function Home() {
   return (

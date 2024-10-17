@@ -1,5 +1,4 @@
 'use client'
-import react from 'react'
 import flightImg from '@/assets/flight.png'
 import Image from 'next/image';
 
