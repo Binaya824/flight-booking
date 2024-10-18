@@ -4,6 +4,12 @@ import { useState } from 'react'
 import { Button } from "@/components/ui/button"
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import Details from '@/components/Forms/CheckoutForm/Details'
+import { Card, CardContent } from "@/components/ui/card"
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import { Separator } from "@radix-ui/react-separator"
+import { Label } from "@/components/ui/label"
+import Extras from './Extras'
+import FlightItinerary from '@/components/FlightItinerary/FlightItinerary'
 
 // type TicketType = 'standard' | 'flexible'
 
@@ -72,15 +78,71 @@ export default function CheckoutForm() {
         <p className="text-sm text-gray-600">Round trip · 1 traveller · Fri 13 Dec - Sat 28 Dec</p>
         <h1 className="text-2xl font-bold">Sydney to New Delhi</h1>
       </div>
-
-      {steps[currentStep - 1].title === "Your details" && <Details/>}
+      
+      <div className=" w-full flex justify-between">
+          <div className=" w-[60%]">
+            {steps[currentStep - 1].title === "Your details" && <>
+              <Details/>
+            </>}
+            {steps[currentStep - 1].title === "Extras" && <>
+              <Extras/>
+            </>}
+            {steps[currentStep - 1].title === "Check and pay" && <>
+              <FlightItinerary/>
+            </>}
+          </div>
+          <div className="">
+              <div className="order-1 lg:order-none col-span-1 lg:col-start-3 lg:row-start-1">
+              <Card>
+                <CardContent className="p-6">
+                  <h3 className="font-semibold mb-4">Ticket (1 adult)</h3>
+                  <div className="space-y-2">
+                    <div className="flex justify-between">
+                      <span>Flight fare</span>
+                      <span>INR86,029.74</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Taxes and charges</span>
+                      <span>INR34,773.07</span>
+                    </div>
+                    <div className="flex justify-between font-semibold">
+                      <span>Flexible ticket</span>
+                      <span>INR15,704.37</span>
+                    </div>
+                    <Separator />
+                    <div className="flex justify-between font-semibold text-lg">
+                      <span>Total</span>
+                      <span>INR136,507.18</span>
+                    </div>
+                    <p className="text-sm text-gray-500">Includes taxes and charges</p>
+                  </div>
+                  <div className="mt-4">
+                    <RadioGroup defaultValue="no-hidden-fees">
+                      <div className="flex items-center space-x-2">
+                        <RadioGroupItem value="no-hidden-fees" id="no-hidden-fees" />
+                        <Label htmlFor="no-hidden-fees">No hidden fees - track your price at every step</Label>
+                      </div>
+                    </RadioGroup>
+                  </div>
+                  <Button className="w-full mt-4" variant="link">View price breakdown</Button>
+                </CardContent>
+              </Card>
+              <Card className="mt-4">
+                <CardContent className="p-6">
+                  <h3 className="font-semibold mb-2">Give feedback</h3>
+                  <p className="text-sm text-gray-500">Tell us how we&apos;re doing and what could be better</p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+      </div>
 
       <div className="flex justify-between mt-6">
         <Button variant="outline" onClick={handleBack} disabled={currentStep === 1}>
           <ArrowLeft className="mr-2 h-4 w-4" /> Back
         </Button>
         <Button onClick={handleNext}>
-          Next <ArrowRight className="ml-2 h-4 w-4" />
+          {steps[currentStep - 1].title === "Check and pay" ? <>Pay Now</>  : <>Next <ArrowRight className="ml-2 h-4 w-4" /></>}
         </Button>
       </div>
 

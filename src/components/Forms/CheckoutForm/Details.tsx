@@ -5,25 +5,27 @@ import { Separator } from "@radix-ui/react-separator"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { LuLuggage, LuBriefcase } from "react-icons/lu"
+import { useState } from "react"
+import TravelerInfoModal from "@/components/Modals/TravelerInfoModal"
 
 export default function Details() {
+  const [openTravelerInfoModal, setOpenTravelerInfoModal] = useState<boolean>(false)
   return (
     <div className="container mx-auto p-4">
       <Card className="border-0 shadow-none">
         <CardContent>
           {/* Use grid with 3 columns */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 p-2">
+          <div className="">
             {/* Left side: Form section */}
-            <div className="lg:col-span-2">
+            <div className="">
               <h2 className="text-xl font-semibold mb-4">Fill in your details</h2>
               <p className="text-sm text-gray-500 mb-4">Add traveller details and review baggage options</p>
               
               {/* Traveler details */}
               <div className="mb-6">
                 <h3 className="text-lg font-semibold mb-2">Adult 1</h3>
-                <Button variant="outline" className="w-full">Add this traveller&apos;s details</Button>
+                <Button variant="outline" className="w-full" onClick={()=> setOpenTravelerInfoModal(true)}>Add this traveller&apos;s details</Button>
               </div>
 
               {/* Baggage options */}
@@ -101,51 +103,11 @@ export default function Details() {
             
 
             {/* Right side: Ticket details section */}
-            <div className="order-1 lg:order-none col-span-1 lg:col-start-3 lg:row-start-1">
-              <Card>
-                <CardContent className="p-6">
-                  <h3 className="font-semibold mb-4">Ticket (1 adult)</h3>
-                  <div className="space-y-2">
-                    <div className="flex justify-between">
-                      <span>Flight fare</span>
-                      <span>INR86,029.74</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Taxes and charges</span>
-                      <span>INR34,773.07</span>
-                    </div>
-                    <div className="flex justify-between font-semibold">
-                      <span>Flexible ticket</span>
-                      <span>INR15,704.37</span>
-                    </div>
-                    <Separator />
-                    <div className="flex justify-between font-semibold text-lg">
-                      <span>Total</span>
-                      <span>INR136,507.18</span>
-                    </div>
-                    <p className="text-sm text-gray-500">Includes taxes and charges</p>
-                  </div>
-                  <div className="mt-4">
-                    <RadioGroup defaultValue="no-hidden-fees">
-                      <div className="flex items-center space-x-2">
-                        <RadioGroupItem value="no-hidden-fees" id="no-hidden-fees" />
-                        <Label htmlFor="no-hidden-fees">No hidden fees - track your price at every step</Label>
-                      </div>
-                    </RadioGroup>
-                  </div>
-                  <Button className="w-full mt-4" variant="link">View price breakdown</Button>
-                </CardContent>
-              </Card>
-              <Card className="mt-4">
-                <CardContent className="p-6">
-                  <h3 className="font-semibold mb-2">Give feedback</h3>
-                  <p className="text-sm text-gray-500">Tell us how we&apos;re doing and what could be better</p>
-                </CardContent>
-              </Card>
-            </div>
+            
           </div>
         </CardContent>
       </Card>
+      <TravelerInfoModal setOpenTravelerInfoModal={setOpenTravelerInfoModal} openTravelerInfoModal={openTravelerInfoModal}/>
     </div>
   )
 }

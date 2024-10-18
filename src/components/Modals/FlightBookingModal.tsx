@@ -198,7 +198,7 @@ export default function FlightBookingModal({
                 <span className="text-2xl font-bold">INR143,380.00</span>
                 <Info className="h-4 w-4" />
               </div>
-              <Button onClick={()=> router.push('/checkout')}>Select</Button>
+              <Button onClick={()=> router.push('/app/checkout')}>Select</Button>
             </div>
           </div>
         </ScrollArea>
